@@ -1,0 +1,353 @@
+<!DOCTYPE html >
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Knauf Project's Visualization</title>
+    <style type="text/css">
+	
+	#map {
+        height: 80%;
+      }
+	  
+	html, body {
+        margin: 0;
+        padding: 0;
+		height: 100%;
+		width: 100vw;
+		color: #777;
+		background-color: #6B777E;
+
+      }
+	  
+	h1,h3,h4,h5,h6 {
+		font-family: "Arial", sans-serif;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 0;
+		margin-left: 0;
+		font-size: 1vw;
+	}
+	
+	h2 {
+		font-family: "Arial", sans-serif;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 0;
+		margin-left: 0;
+		font-size: 2vw;
+	}
+		
+	p {
+		font-family: "Arial", sans-serif;
+		margin-bottom:0;
+		font-size: 1vw;
+	}
+
+	#contactform, #loginform { 
+	  position: relative; 
+	  z-index: 1; /* The z-index should be higher than Google Maps */
+	  width: 95vw;
+	  margin: 1vw auto 0;
+	  padding: 1vw;
+	  background: GhostWhite;
+	  height: auto;
+	  opacity: 1; 
+	  color: black;
+	  -webkit-border-radius:1vw;
+	  -moz-border-radius:1vw;
+	  border-radius:1vw;
+	}
+
+	select {
+		padding:0.25vw;
+		margin: 0;
+		font-size:1vw;
+		-webkit-border-radius:0.45vw;
+		-moz-border-radius:0.45vw;
+		border-radius:0.45vw;
+		background: #778899;
+		color:#F0F0F0;
+		border:none;
+		outline:none;
+		display: inline-block;
+		-webkit-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+		cursor:pointer;
+	}
+
+	input[type="reset"]{
+		padding:0.25vw;
+		margin: 0;
+		font-size:1vw;
+		-webkit-border-radius:0.45vw;
+		-moz-border-radius:0.45vw;
+		border-radius:0.45vw;
+		background: #424d57;
+		color:#F0F0F0;
+		border:none;
+		outline:none;
+		display: inline-block;
+		-webkit-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+		cursor:pointer;
+	}
+
+	input[type="button"]{
+		padding:0.25vw;
+		margin: 0;
+		font-size:1vw;
+		-webkit-border-radius:0.45vw;
+		-moz-border-radius:0.45vw;
+		border-radius:0.45vw;
+		background: #424d57;
+		color:#F0F0F0;
+		border:none;
+		outline:none;
+		display: inline-block;
+		-webkit-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+		cursor:pointer;
+	}
+
+	input[type=number]{
+		width: 8vw;
+		font-size:1vw;
+	} 
+
+</style>
+	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap">
+    </script>
+    <script>
+      var customLabel = {
+        restaurant: {
+          label: 'R'
+        },
+        bar: {
+          label: 'B'
+        }
+      };
+
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(-33.863276, 151.207977),
+          zoom: 12
+        });
+        var infoWindow = new google.maps.InfoWindow;
+
+          // Change this depending on the name of your PHP or XML file
+          downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var name = markerElem.getAttribute('name');
+              var address = markerElem.getAttribute('address');
+              var type = markerElem.getAttribute('type');
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
+
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = name
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text = document.createElement('text');
+              text.textContent = address
+              infowincontent.appendChild(text);
+              var icon = customLabel[type] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
+        }
+
+
+
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing() {}
+    </script>
+	
+  </head>
+
+  <body>
+    
+		<div id="contactform">
+	
+		<center><h2>Knauf Market Map</h2></center>
+	
+		<table style="width:100%">
+		
+			<td>
+			
+			<div id= "filters" style='float: left; text-align: left'>
+			
+			
+			<p>Filters</p>
+				
+				<form>
+				
+				<input id= "reset" type="reset" value="reset" type="button"/>
+				
+				<!-- auto filled menu -->
+				<select id="Cat0">
+				  
+				</select>
+				
+				
+				<select id="Cat1">
+				  <option value="" selected="selected">--Select--</option>
+				  <option value="Sub-dealers">Sub-dealers</option>
+				  <option value="Stakeholders">Stakeholders</option>
+				  <option value="Projects">Projects</option>
+				</select>
+				
+				<!--<select id="Cat1">
+				  <option value="Projects" selected="selected">Projects</option>
+				</select>-->
+				
+				
+				<!-- <label id="Cat2_label">Category 2</label> -->
+				<select id="Cat2">
+				<optgroup label="Sub-dealers">
+								<option value="">--Select--</option>
+								<option value="Importer">Importer</option>
+								<option value="Distributor">Distributor</option>
+				   </optgroup>
+				   <optgroup label="Stakeholders">
+								<option value="">--Select--</option>
+								<option value="Specifiers">Specifiers</option>
+								<option value="Owner/Property Developers">Owner/Property Developers</option>
+								<option value="Contractors">Contractors</option>
+								<option value="Government">Government</option>
+								<option value="NA">Classification Pending</option>
+				   </optgroup>
+					<optgroup label="Projects">					
+								<option value="">--Select--</option>
+								<option value="Hotel">Hotel</option>
+								<option value="Multi-Use">Multi-Use</option>
+								<option value="Office">Office</option>
+								<option value="Residential">Residential</option>
+								<option value="Retail">Retail</option>
+				   </optgroup>
+				   </select>
+
+				<!-- <label id="Cat3_label">Category 3</label> -->
+				 <select id="Cat3">
+				   <optgroup label="Importer">
+				   </optgroup>
+				   <optgroup label="Sub-dealers">
+				   </optgroup>
+				   <optgroup label="Stakeholders">
+				   </optgroup>
+					<optgroup label="Projects">
+								<option value="">--Select--</option>
+								<option value="Alteration/Addition">Alteration/Addition</option>
+								<option value="New Building/Construction">New Building/Construction</option>
+								<option value="Interior Decoration">Interior Decoration</option>
+								<option value="Refurbishment">Refurbishment</option>
+								<option value="Extension">Extension</option>
+				   </optgroup>
+				   </select>     
+
+				 <!--<label id="Cat4_label">Category 4</label>-->
+				 <select id="Cat4">
+				   <optgroup label="Importer">
+				   </optgroup>
+				   <optgroup label="Sub-dealers">
+				   </optgroup>
+				   <optgroup label="Stakeholders">
+				   </optgroup>
+					<optgroup label="Projects">
+								<option value="">--Select--</option>
+								<option value="Unclassified">Unclassified</option>
+								<option value="Commercial">Commercial</option>
+								<option value="Government">Government</option>
+								<option value="Private Home Owner">Private Home Owner</option>
+				   </optgroup>
+				   </select>
+
+
+				 <select id="PROJECTSTAGE">
+				   <optgroup label="Importer">
+				   </optgroup>
+				   <optgroup label="Sub-dealers">
+				   </optgroup>
+				   <optgroup label="Stakeholders">
+				   </optgroup>
+					<optgroup label="Projects">
+								<option value="">--Select--</option>
+								<option value="Concept">Concept</option>
+								<option value="Construction: Main Contract Awarded">Construction: Main Contract Awarded</option>
+								<option value="Construction: Subcontract(s) Awarded">Construction: Subcontract(s) Awarded</option>
+								<option value="Construction: Subcontract(s) Tender">Construction: Subcontract(s) Tender</option>
+								<option value="Design">Design</option>
+								<option value="Documentation">Documentation</option>
+								<option value="Post tender">Post tender</option>
+								<option value="Tender">Tender</option>
+	
+				   </optgroup>
+				   </select>    
+
+				   
+
+			
+			
+			</div>
+			<!--
+			<div id= "Number_filter" style='float: right; text-align: right'>
+			
+			
+
+				<p>ID Number Filter</p>
+				<input type="number" id= "ID" name="ID" min="1" max="99999999999999" size="number">
+				<input id= "enter" value ="enter" type="button">
+				
+				</form>
+				
+			</div>
+			-->
+			
+			</td>
+
+		</table>
+			
+			<hr>
+			
+			<div id="googft-mapCanvas" onmousedown='return false;' onselectstart='return false;'></div>
+			
+			</p>
+	</div>
+
+	<br>
+	
+	<div id="map"></div>
+	
+  </body>
+</html>
