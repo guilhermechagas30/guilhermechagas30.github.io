@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <markers>
-<marker Id="1" Icon="grn_blank" Stage="Construction: Main Contract Awarded" Latitude="7.152356" Longitude="125.65879" ID="1238004" Name="ASCENSION HEIGHTS" />
+<marker Id="1" Icon="grn_blank" Cat0="Philippines" Cat1="Projects" Cat2="Residential" Cat3="New Building/Construction" Cat4="Commercial" Stage="Construction: Main Contract Awarded" Latitude="7.152356" Longitude="125.65879" ID="1238004" />
+<marker Id="2" Icon="purple_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Hotel" Cat3="New Building/Construction" Cat4="Commercial" Stage="Design" Latitude="12.213105" ID="2432011" />
+<marker Id="3" Icon="orange_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Multi-Use" Cat3="New Building/Construction" Cat4="Government" Stage="Construction: Subcontract(s) Tender" Latitude="9.628942" ID="2677011" />
+<marker Id="4" Icon="purple_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Hotel" Cat3="New Building/Construction" Cat4="Commercial" Stage="Construction: Subcontract(s) Tender" Latitude="10.244844" ID="2936011" />
+<marker Id="5" Icon="ylw_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Education" Cat3="New Building/Construction" Cat4="Government" Stage="Concept" Latitude="10.880408" ID="3218011" />
+<marker Id="6" Icon="ylw_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Education" Cat3="New Building/Construction" Cat4="Commercial" Stage="Construction: Subcontract(s) Awarded" Latitude="21.000368" ID="3662011" />
+<marker Id="7" Icon="wht_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Healthcare" Cat3="New Building/Construction" Cat4="Government" Stage="Documentation" Latitude="10.411423" ID="3933011" />
+<marker Id="8" Icon="orange_blank" Cat0="Vietnam" Cat1="Projects" Cat2="Multi-Use" Cat3="New Building/Construction" Cat4="Commercial" Stage="Documentation" Latitude="10.774862" ID="4154011" />
 </markers>
