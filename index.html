@@ -123,14 +123,50 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap">
     </script>
     <script>
-      //var customLabel = {
-      //  restaurant: {
-      //    label: 'R'
-      //  },
-      //  bar: {
-      //    label: 'B'
-      //  }
-      //};
+      //icons used
+	  var customLabel = {
+        a: {label: 'A.png'},
+        c: { label: 'C.png'},
+		d: { label: 'D.png'},
+		s: { label: 'S.png'},
+		t: { label: 'T.png'},
+		grn_blank: { label: 'grn-blank.png'},
+		grn_circle: { label: 'grn-circle.png'},
+		grn_diamond: { label: 'grn-diamond.png'},
+		grn_square: { label: 'grn-square.png'},
+		grn_stars: { label: 'grn-stars.png'},
+		ltblu_blank: { label: 'ltblu-blank.png'},
+		ltblu_circle: { label: 'ltblu-circle.png'},
+		ltblu_diamond: { label: 'ltblu-diamond.png'},
+		ltblu_square: { label: 'ltblu-square.png'},
+		ltblu_stars: { label: 'ltblu-stars.png'},
+		orange_blank: { label: 'orange-blank.png'},
+		orange_circle: { label: 'orange-circle.png'},
+		orange_diamond: { label: 'orange-diamond.png'},
+		orange_square: { label: 'orange-square.png'},
+		orange_stars: { label: 'orange-stars.png'},
+		pink_blank: { label: 'pink-blank.png'},
+		pink_circle: { label: 'pink-circle.png'},
+		pink_diamond: { label: 'pink-diamond.png'},
+		pink_square: { label: 'pink-square.png'},
+		pink_stars: { label: 'pink-stars.png'},
+		purple_blank: { label: 'purple-blank.png'},
+		purple_circle: { label: 'purple-circle.png'},
+		purple_diamond: { label: 'purple-diamond.png'},
+		purple_square: { label: 'purple-square.png'},
+		purple_stars: { label: 'purple-stars.png'},
+		wht_blank: { label: 'wht-blank.png'},
+		wht_circle: { label: 'wht-circle.png'},
+		wht_diamond: { label: 'wht-diamond.png'},
+		wht_square: { label: 'wht-square.png'},
+		wht_stars: { label: 'wht-stars.png'},
+		ylw_blank: { label: 'ylw-blank.png'},
+		ylw_circle: { label: 'ylw-circle.png'},
+		ylw_diamond: { label: 'ylw-diamond.png'},
+		ylw_square: { label: 'ylw-square.png'},
+		ylw_stars: { label: 'ylw-stars.png'},
+		
+      };
 
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -141,7 +177,7 @@
 
           // Change this depending on the name of your PHP or XML file
           //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
-	  downloadUrl('xml_test.xml', function(data) {
+			downloadUrl('xml_test.xml', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -161,13 +197,13 @@
               var text = document.createElement('text');
               text.textContent = address
               infowincontent.appendChild(text);
-              //var icon = customLabel[type] || {};
-			  var icon_marker = type;
+              var icon_marker = customLabel[type] || {};
+			  var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon_marker.label,
-				icon: icon_marker
+                //label: icon_marker.label,
+				icon: iconBase + icon_marker.label
               });
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
