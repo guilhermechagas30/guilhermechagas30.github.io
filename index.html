@@ -123,14 +123,14 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap">
     </script>
     <script>
-      var customLabel = {
-        restaurant: {
-          label: 'R'
-        },
-        bar: {
-          label: 'B'
-        }
-      };
+      //var customLabel = {
+      //  restaurant: {
+      //    label: 'R'
+      //  },
+      //  bar: {
+      //    label: 'B'
+      //  }
+      //};
 
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -161,7 +161,8 @@
               var text = document.createElement('text');
               text.textContent = address
               infowincontent.appendChild(text);
-              var icon = customLabel[type] || {};
+              //var icon = customLabel[type] || {};
+			  var icon = type;
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
