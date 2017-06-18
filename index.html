@@ -199,17 +199,18 @@
               infowincontent.appendChild(text);
               var icon_marker = customLabel[type] || {};
 			  var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
+			  var image = {
+				  url: iconBase + icon_marker.label,
+				  size: new google.maps.Size(64, 64),
+				  origin: new google.maps.Point(0, 0),
+				  anchor: new google.maps.Point(17, 34),
+				  scaledSize: new google.maps.Size(25, 25)
+				};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
                 //label: icon_marker.label,
-				icon: {
-						url: iconBase + icon_marker.label,
-						size: new google.maps.Size(64, 64)
-						//origin: new google.maps.Point(0, 0),
-						//anchor: new google.maps.Point(17, 34),
-						scaledSize: new google.maps.Size(25, 25)
-					}
+				icon: image
               });
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
