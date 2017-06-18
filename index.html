@@ -162,11 +162,12 @@
               text.textContent = address
               infowincontent.appendChild(text);
               //var icon = customLabel[type] || {};
-			  var icon = type;
+			  var icon_marker = type;
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon.label
+                label: icon.label,
+				icon: icon_marker
               });
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
