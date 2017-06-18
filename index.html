@@ -203,8 +203,13 @@
                 map: map,
                 position: point,
                 //label: icon_marker.label,
-				icon: {url: iconBase + icon_marker.label,
-						size: new google.maps.Size(20, 32)}
+				icon: {
+						url: iconBase + icon_marker.label,
+						size: new google.maps.Size(64, 64)
+						origin: null,
+						anchor: null,
+						scaledSize: new google.maps.Size(25, 25)
+					}
               });
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
