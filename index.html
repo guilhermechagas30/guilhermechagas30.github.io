@@ -217,12 +217,19 @@
 			  
 				var infowincontent = document.createElement('div');
 				var strong = document.createElement('strong');
+				var text = document.createElement('text');
+				var new_l = document.createElement('br');
+				
+				strong.textContent = stage
+				infowincontent.appendChild(strong);
+				infowincontent.appendChild(new_l);
+				
 				
 				strong.textContent = name
 				infowincontent.appendChild(strong);
-				infowincontent.appendChild(document.createElement('br'));
+				infowincontent.appendChild(new_l);
 
-				var text = document.createElement('text');
+				
 				text.textContent = stage
 				infowincontent.appendChild(text);
               
