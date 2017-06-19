@@ -202,28 +202,60 @@
 				  
 				  
 				//info text
-				var stage 		= markerElem.getAttribute('Stage');
-				var id 			= markerElem.getAttribute('ID');
-				var type 		= markerElem.getAttribute('Type');
-				var name 		= markerElem.getAttribute('Name');
-				var const_st	= markerElem.getAttribute('CONST_START');
-				var value 		= markerElem.getAttribute('Value');
-				var floor_ar	= markerElem.getAttribute('Floor_Area');
-				var storeys		= markerElem.getAttribute('Storeys');
-				var owner_ty	= markerElem.getAttribute('Owner_type');
-				var dev_type	= markerElem.getAttribute('Dev_type');
-				var contact_d	= markerElem.getAttribute('Contact_details');
-			  
-			  
-				var infowincontent = document.createElement('div');
-				var strong = document.createElement('strong');
-				var text = document.createElement('text');
-				var new_l = document.createElement('br');
 				
-				strong.textContent = "Stage: ";
-				text.textContent = stage
-				infowincontent.appendChild(strong);
-				infowincontent.appendChild(text);
+				var infowincontent = document.createElement('div');
+				
+				var headers_val = [
+				'Stage',
+				'ID',
+				'Type',
+				'Name',
+				'CONST_START',
+				'Value',
+				'Floor_Area',
+				'Storeys',
+				'Owner_type',
+				'Dev_type',
+				'Contact_details'
+				];
+				
+				var strong01 = document.createElement('strong');
+				var strong02 = document.createElement('strong');
+				var strong03 = document.createElement('strong');
+				var strong04 = document.createElement('strong');
+				var strong05 = document.createElement('strong');
+				var strong06 = document.createElement('strong');
+				var strong07 = document.createElement('strong');
+				var strong08 = document.createElement('strong');
+				var strong09 = document.createElement('strong');
+				var strong10 = document.createElement('strong');
+				var strong11 = document.createElement('strong');
+				
+				var text01 = document.createElement('text');
+				var text02 = document.createElement('text');
+				var text03 = document.createElement('text');
+				var text04 = document.createElement('text');
+				var text05 = document.createElement('text');
+				var text06 = document.createElement('text');
+				var text07 = document.createElement('text');
+				var text08 = document.createElement('text');
+				var text09 = document.createElement('text');
+				var text10 = document.createElement('text');
+				var text11 = document.createElement('text');
+				
+				var new_l = document.createElement('br');
+			  
+				
+				strong01.textContent = "Stage: ";
+				text01.textContent = markerElem.getAttribute(headers_val[0]);
+				infowincontent.appendChild(strong01);
+				infowincontent.appendChild(text01);
+				infowincontent.appendChild(new_l);
+				
+				strong02.textContent = "ID: ";
+				text02.textContent = markerElem.getAttribute(headers_val[1]);
+				infowincontent.appendChild(strong02);
+				infowincontent.appendChild(text02);
 				infowincontent.appendChild(new_l);
 				
 				
