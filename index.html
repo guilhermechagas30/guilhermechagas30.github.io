@@ -167,13 +167,14 @@
 		ylw_stars: { label: 'ylw-stars.png'},
 		
       };
-
-        function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(10.796249575513844, 106.71280633544916),
-          zoom: 4
-        });
-        var infoWindow = new google.maps.InfoWindow;
+			
+			//Initialize Map
+			function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  center: new google.maps.LatLng(10.796249575513844, 106.71280633544916),
+			  zoom: 4
+			});
+			var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
           //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
@@ -181,41 +182,65 @@
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
-              var name = markerElem.getAttribute('Name');
-              var address = markerElem.getAttribute('Stage');
-              var type = markerElem.getAttribute('Icon');
-              var point = new google.maps.LatLng(
-                  parseFloat(markerElem.getAttribute('Latitude')),
-                  parseFloat(markerElem.getAttribute('Longitude')));
-
-              var infowincontent = document.createElement('div');
-              var strong = document.createElement('strong');
-              strong.textContent = name
-              infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('br'));
-
-              var text = document.createElement('text');
-              text.textContent = address
-              infowincontent.appendChild(text);
-              var icon_marker = customLabel[type] || {};
-			  var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
-			  var image = {
+			
+				//icon
+				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
+				var type = markerElem.getAttribute('Icon');
+				var icon_marker = customLabel[type] || {};
+				var image = {
 				  url: iconBase + icon_marker.label,
 				  size: new google.maps.Size(64, 64),
 				  origin: new google.maps.Point(0, 0),
 				  anchor: new google.maps.Point(16, 32),
 				  scaledSize: new google.maps.Size(32, 32)
 				};
-              var marker = new google.maps.Marker({
-                map: map,
-                position: point,
-                //label: 'hello world',
-				icon: image
-              });
-              marker.addListener('click', function() {
-                infoWindow.setContent(infowincontent);
-                infoWindow.open(map, marker);
-              });
+				
+				//coordinates
+				var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('Latitude')),
+                  parseFloat(markerElem.getAttribute('Longitude')));
+				  
+				  
+				//info text
+				var stage 		= markerElem.getAttribute('Stage');
+				var id 			= markerElem.getAttribute('ID');
+				var type 		= markerElem.getAttribute('Type');
+				var name 		= markerElem.getAttribute('Name');
+				var const_st	= markerElem.getAttribute('CONST_START');
+				var value 		= markerElem.getAttribute('Value');
+				var floor_ar	= markerElem.getAttribute('Floor_Area');
+				var storeys		= markerElem.getAttribute('Storeys');
+				var owner_ty	= markerElem.getAttribute('Owner_type');
+				var dev_type	= markerElem.getAttribute('Dev_type');
+				var contact_d	= markerElem.getAttribute('Contact_details');
+			  
+			  
+				var infowincontent = document.createElement('div');
+				var strong = document.createElement('strong');
+				
+				strong.textContent = name
+				infowincontent.appendChild(strong);
+				infowincontent.appendChild(document.createElement('br'));
+
+				var text = document.createElement('text');
+				text.textContent = stage
+				infowincontent.appendChild(text);
+              
+			  
+			  
+				//draw markers on map
+				  var marker = new google.maps.Marker({
+					map: map,
+					position: point,
+					//label: 'hello world',
+					icon: image
+				  });
+			  
+				//click function
+				marker.addListener('click', function() {
+					infoWindow.setContent(infowincontent);
+					infoWindow.open(map, marker);
+				});
             });
           });
         }
