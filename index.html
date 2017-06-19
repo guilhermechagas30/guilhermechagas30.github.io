@@ -219,6 +219,7 @@
 				'Contact_details'
 				];
 				
+				var strong00 = document.createElement('strong');
 				var strong01 = document.createElement('strong');
 				var strong02 = document.createElement('strong');
 				var strong03 = document.createElement('strong');
@@ -229,8 +230,8 @@
 				var strong08 = document.createElement('strong');
 				var strong09 = document.createElement('strong');
 				var strong10 = document.createElement('strong');
-				var strong11 = document.createElement('strong');
 				
+				var text00 = document.createElement('text');
 				var text01 = document.createElement('text');
 				var text02 = document.createElement('text');
 				var text03 = document.createElement('text');
@@ -241,8 +242,8 @@
 				var text08 = document.createElement('text');
 				var text09 = document.createElement('text');
 				var text10 = document.createElement('text');
-				var text11 = document.createElement('text');
 				
+				var new_l00 = document.createElement('br');
 				var new_l01 = document.createElement('br');
 				var new_l02 = document.createElement('br');
 				var new_l03 = document.createElement('br');
@@ -253,38 +254,49 @@
 				var new_l08 = document.createElement('br');
 				var new_l09 = document.createElement('br');
 				var new_l10 = document.createElement('br');
-				var new_l11 = document.createElement('br');
 			  
+				for (i = 0; i < headers_val.length; i++) {
+					temp0 = document.createElement('strong');
+					temp1 = document.createElement('text');
+					temp2 = document.createElement('br');
+					
+					temp0.textContent = headers_val[i] + ": ";
+					temp1.textContent = markerElem.getAttribute(headers_val[i]);
+					
+					infowincontent.appendChild(temp0);
+					infowincontent.appendChild(temp1);
+					infowincontent.appendChild(temp2);
+				}
 				
-				strong01.textContent = headers_val[0] + ": ";
-				text01.textContent = markerElem.getAttribute(headers_val[0]);
-				infowincontent.appendChild(strong01);
-				infowincontent.appendChild(text01);
-				infowincontent.appendChild(new_l01);
+				<!-- strong00.textContent = headers_val[0] + ": "; -->
+				<!-- text01.textContent = markerElem.getAttribute(headers_val[0]); -->
+				<!-- infowincontent.appendChild(strong00); -->
+				<!-- infowincontent.appendChild(text00); -->
+				<!-- infowincontent.appendChild(new_l00); -->
 				
-				strong02.textContent = headers_val[1] + ": ";
-				text02.textContent = markerElem.getAttribute(headers_val[1]);
-				infowincontent.appendChild(strong02);
-				infowincontent.appendChild(text02);
-				infowincontent.appendChild(new_l02);
+				<!-- strong01.textContent = headers_val[1] + ": "; -->
+				<!-- text01.textContent = markerElem.getAttribute(headers_val[1]); -->
+				<!-- infowincontent.appendChild(strong01); -->
+				<!-- infowincontent.appendChild(text01); -->
+				<!-- infowincontent.appendChild(new_l01); -->
 				
-				strong03.textContent = headers_val[2] + ": ";
-				text03.textContent = markerElem.getAttribute(headers_val[2]);
-				infowincontent.appendChild(strong03);
-				infowincontent.appendChild(text03);
-				infowincontent.appendChild(new_l03);
+				<!-- strong02.textContent = headers_val[2] + ": "; -->
+				<!-- text02.textContent = markerElem.getAttribute(headers_val[2]); -->
+				<!-- infowincontent.appendChild(strong02); -->
+				<!-- infowincontent.appendChild(text02); -->
+				<!-- infowincontent.appendChild(new_l02); -->
 				
-				strong04.textContent = headers_val[3] + ": ";
-				text04.textContent = markerElem.getAttribute(headers_val[3]);
-				infowincontent.appendChild(strong04);
-				infowincontent.appendChild(text04);
-				infowincontent.appendChild(new_l04);
+				<!-- strong03.textContent = headers_val[3] + ": "; -->
+				<!-- text03.textContent = markerElem.getAttribute(headers_val[3]); -->
+				<!-- infowincontent.appendChild(strong03); -->
+				<!-- infowincontent.appendChild(text03); -->
+				<!-- infowincontent.appendChild(new_l03); -->
 				
-				strong05.textContent = headers_val[4] + ": ";
-				text05.textContent = markerElem.getAttribute(headers_val[4]);
-				infowincontent.appendChild(strong05);
-				infowincontent.appendChild(text05);
-				infowincontent.appendChild(new_l05);
+				<!-- strong04.textContent = headers_val[4] + ": "; -->
+				<!-- text04.textContent = markerElem.getAttribute(headers_val[4]); -->
+				<!-- infowincontent.appendChild(strong04); -->
+				<!-- infowincontent.appendChild(text04); -->
+				<!-- infowincontent.appendChild(new_l04); -->
 				
 				
               
