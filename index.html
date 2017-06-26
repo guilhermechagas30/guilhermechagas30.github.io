@@ -185,7 +185,7 @@
 			
 				//icon
 				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
-				var type = markerElem.getAttribute('Icon');
+				var type = markerElem.getAttribute('icon');
 				var icon_marker = customLabel[type] || {};
 				var image = {
 				  url: iconBase + icon_marker.label,
@@ -197,8 +197,8 @@
 				
 				//coordinates
 				var point = new google.maps.LatLng(
-                  parseFloat(markerElem.getAttribute('Latitude')),
-                  parseFloat(markerElem.getAttribute('Longitude')));
+                  parseFloat(markerElem.getAttribute('latitude')),
+                  parseFloat(markerElem.getAttribute('longitude')));
 				  
 				  
 				//info text
@@ -206,17 +206,17 @@
 				var infowincontent = document.createElement('div');
 				
 				var headers_val = [
-				'Stage',
-				'ID',
-				'Type',
-				'Name',
-				'CONST_START',
-				'Value',
-				'Floor_Area',
-				'Storeys',
-				'Owner_type',
-				'Dev_type',
-				'Contact_details'
+				'stage',
+				'id',
+				'type',
+				'name',
+				'const_start',
+				'value',
+				'floor_area',
+				'storeys',
+				'owner_type',
+				'dev_type',
+				'contact_details'
 				];
 							  
 				for (i = 0; i < headers_val.length; i++) {
