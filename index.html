@@ -226,7 +226,7 @@
 					
 					if (headers_val[i] == 'contact_details') {
 						
-						temp0.textContent = headers_val[i] + "(v2): ";
+						temp0.textContent = headers_val[i] + ": ";
 						infowincontent.appendChild(temp0);
 							
 							var temp = markerElem.getAttribute(headers_val[i]);
@@ -245,8 +245,9 @@
 									if (t[j].indexOf('\\t\\t') !== -1){
 										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','... ')));
 									}else{
+										infowincontent.appendChild((document.createElement('strong')).textContent = t[j].replace('\\t','. '));
 										
-										infowincontent.appendChild(document.createElement('strong').createTextNode(t[j].replace('\\t','. ')));
+										//infowincontent.appendChild(document.createTextNode(t[j].replace('\\t','. ')));
 									}	
 								}
 							 } 
