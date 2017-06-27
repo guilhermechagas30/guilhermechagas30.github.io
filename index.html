@@ -238,7 +238,13 @@
 							 for(j=1;j<t.length;j++){
 								infowincontent.appendChild(document.createElement('BR'));
 								if(t[j].length>0){
-								  infowincontent.appendChild(document.createTextNode(t[j]));
+									
+									if (t[j].search('\t')){
+										temp0.textContent = t[j];
+										infowincontent.appendChild(temp0);
+									}else{
+										infowincontent.appendChild(document.createTextNode(t[j]));
+									}	
 								}
 							 } 
 									
