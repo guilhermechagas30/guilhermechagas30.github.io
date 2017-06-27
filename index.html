@@ -224,12 +224,23 @@
 					temp1 = document.createElement('text');
 					temp2 = document.createElement('br');
 					
-					temp0.textContent = headers_val[i] + ": ";
-					temp1.textContent = markerElem.getAttribute(headers_val[i]);
+					if (headers_val[i] == 'contact_details') {
+						temp0.textContent = headers_val[i] + "(isto eh um teste): ";
+						temp1.textContent = markerElem.getAttribute(headers_val[i]);
+						
+						infowincontent.appendChild(temp0);
+						infowincontent.appendChild(temp1);
+						infowincontent.appendChild(temp2);
+					}else{
 					
-					infowincontent.appendChild(temp0);
-					infowincontent.appendChild(temp1);
-					infowincontent.appendChild(temp2);
+						temp0.textContent = headers_val[i] + ": ";
+						temp1.textContent = markerElem.getAttribute(headers_val[i]);
+						
+						infowincontent.appendChild(temp0);
+						infowincontent.appendChild(temp1);
+						infowincontent.appendChild(temp2);
+					
+					}
 				}
 				
 				//draw markers on map
