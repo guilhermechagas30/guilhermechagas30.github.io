@@ -278,8 +278,18 @@
             });
           });
         }
-
-
+		
+		
+		//listeners
+		//listeners	
+			google.maps.event.addDomListener(document.getElementById('Cat0'),
+					'change', function() {
+					 var reset_button = 0;
+					 window.alert("sometext");
+				});
+		
+		
+		
 
       function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
