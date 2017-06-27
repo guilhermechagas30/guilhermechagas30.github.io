@@ -243,10 +243,11 @@
 									//var n_temp = text_temp.indexOf('\\t\\t');
 								
 									if (t[j].indexOf('\\t\\t') !== -1){
-										//infowincontent.appendChild(document.createElement('BR'));
-										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','&nbsp;&nbsp;')));
+										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','   ')));
 									}else{
-										infowincontent.appendChild(document.createTextNode(t[j]));
+										para = document.createElement('strong');
+										para.createTextNode(t[j]);
+										infowincontent.appendChild(para);
 									}	
 								}
 							 } 
