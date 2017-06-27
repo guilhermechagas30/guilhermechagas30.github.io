@@ -230,13 +230,13 @@
 						infowincontent.appendChild(temp0);
 						
 							var t = headers_val[i].split('\n'),
-								 i;
+								 j;
 							 if(t[0].length>0){         
 							   infowincontent.appendChild(document.createTextNode(t[0]));
 							 }
 							 for(j=1;j<t.length;j++){
 								infowincontent.appendChild(document.createElement('BR'));
-								if(t[i].length>0){
+								if(t[j].length>0){
 								  infowincontent.appendChild(document.createTextNode(t[j]));
 								}
 							 } 
