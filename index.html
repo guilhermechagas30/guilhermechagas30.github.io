@@ -239,9 +239,9 @@
 								infowincontent.appendChild(document.createElement('BR'));
 								if(t[j].length>0){
 									
-									if (t[j].search('\t')){
-										temp0.textContent = t[j];
-										infowincontent.appendChild(temp0);
+									if (t[j].search('\t\t')){
+										infowincontent.appendChild(document.createElement('strong'));
+										infowincontent.appendChild(document.createTextNode(t[j]));
 									}else{
 										infowincontent.appendChild(document.createTextNode(t[j]));
 									}	
