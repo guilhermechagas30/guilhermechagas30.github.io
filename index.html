@@ -277,22 +277,24 @@
 				
 				if ((Cat0 == cat0_xml) || (Cat0 == "")) {
 				
-				//draw markers on map
-				  var marker = new google.maps.Marker({
-					map: map,
-					position: point,
-					//label: 'hello world',
-					icon: image
-				  });
+					//draw markers on map
+					  var marker = new google.maps.Marker({
+						map: map,
+						position: point,
+						//label: 'hello world',
+						icon: image
+					  });
+					  
+					//click function
+					marker.addListener('click', function() {
+						infoWindow.setContent(infowincontent);
+						infoWindow.open(map, marker);
+					});
 			  
 				}
 			  
 			  
-				//click function
-				marker.addListener('click', function() {
-					infoWindow.setContent(infowincontent);
-					infoWindow.open(map, marker);
-				});
+				
             });
           });
         }
