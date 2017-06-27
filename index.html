@@ -229,34 +229,26 @@
 						temp0.textContent = headers_val[i] + ": ";
 						infowincontent.appendChild(temp0);
 							
-							var temp = markerElem.getAttribute(headers_val[i]);
-							var t = temp.split('\\n'),
-								 j;
-							 if(t[0].length>0){         
-							   infowincontent.appendChild(document.createTextNode(t[0]));
-							 }
-							 for(j=1;j<t.length;j++){
-								infowincontent.appendChild(document.createElement('BR'));
-								if(t[j].length>0){
+						var temp = markerElem.getAttribute(headers_val[i]);
+						var t = temp.split('\\n'),
+							 j;
+						if(t[0].length>0){         
+							infowincontent.appendChild(document.createTextNode(t[0]));
+						}
+						for(j=1;j<t.length;j++){
+							infowincontent.appendChild(document.createElement('BR'));
+							if(t[j].length>0){
+								//strong and line breaks for contacts
+								if (t[j].indexOf('\\t\\t') !== -1){
+									infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','... ')));
+								}else{
+									var temp_cont = document.createElement('strong');
+									temp_cont.textContent = t[j].replace('\\t','. ');
+									infowincontent.appendChild(temp_cont);
+								}	
+							}
+						} 
 									
-									//var text_temp = t[j];
-									//var n_temp = text_temp.indexOf('\\t\\t');
-								
-									if (t[j].indexOf('\\t\\t') !== -1){
-										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','... ')));
-									}else{
-										var temp_cont = document.createElement('strong');
-										temp_cont.textContent = t[j].replace('\\t','. ');
-										infowincontent.appendChild(temp_cont);
-										
-										//infowincontent.appendChild(document.createTextNode(t[j].replace('\\t','. ')));
-									}	
-								}
-							 } 
-									
-						//temp1.textContent = markerElem.getAttribute(headers_val[i]);
-						
-						//infowincontent.appendChild(temp1);
 						infowincontent.appendChild(temp2);
 					}else{
 					
@@ -331,7 +323,11 @@
 				
 				<!-- auto filled menu -->
 				<select id="Cat0">
-				  
+					<option value="" selected="selected">--Select--</option>
+					<option value="Indonesia">Indonesia</option>
+					<option value="Philippines">Philippines</option>
+					<option value="Thailand">Thailand</option>
+					<option value="Vietnam">Vietnam</option>
 				</select>
 				
 				
