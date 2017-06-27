@@ -245,9 +245,7 @@
 									if (t[j].indexOf('\\t\\t') !== -1){
 										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t\\t','   ')));
 									}else{
-										para = document.createElement('strong');
-										para.createTextNode(t[j]);
-										infowincontent.appendChild(para);
+										infowincontent.appendChild(document.createTextNode(t[j].replace('\\t','')));
 									}	
 								}
 							 } 
