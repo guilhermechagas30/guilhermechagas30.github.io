@@ -239,10 +239,10 @@
 								infowincontent.appendChild(document.createElement('BR'));
 								if(t[j].length>0){
 									
-									var text_temp = t[j];
-									var n_temp = text_temp.indexOf('\\t\\t');
+									//var text_temp = t[j];
+									//var n_temp = text_temp.indexOf('\\t\\t');
 								
-									if (t[j].search('\t\t') > 0){
+									if (t[j].indexOf('\\t\\t') !== -1){
 										infowincontent.appendChild(document.createElement('strong'));
 										infowincontent.appendChild(document.createTextNode(t[j]));
 									}else{
