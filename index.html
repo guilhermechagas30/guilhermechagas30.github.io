@@ -168,7 +168,45 @@
 		
       };
 			
-		///////////////////////////////////////////////////////////////////////
+
+
+      function downloadUrl(url) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
+
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+		
+      }
+
+	  
+	  
+		//listeners	
+	  
+		window.onload=function(){
+		
+			//Donwload URL
+			downloadUrl('xml_test.xml', initMap(data));
+		
+			document.getElementById("reset").addEventListener("click", function(){
+					 var reset_button = 0;
+					 initMap(data);
+					 window.alert("sometext");
+				});
+				
+				
+		}
+	  
+	  
+	  		///////////////////////////////////////////////////////////////////////
 			
 			
 			
@@ -283,41 +321,6 @@
 		
 		
 		///////////////////////////////////////////////////////////////////////////////////////////
-
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request, request.status);
-          }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
-
-	  
-	  
-		//listeners	
-	  
-		window.onload=function(){
-		
-			//Donwload URL
-			downloadUrl('xml_test.xml', initMap(data));
-		
-			document.getElementById("reset").addEventListener("click", function(){
-					 var reset_button = 0;
-					 initMap(data);
-					 window.alert("sometext");
-				});
-				
-				
-		}
-	  
 	  
       function doNothing() {}
     </script>
