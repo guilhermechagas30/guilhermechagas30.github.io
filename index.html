@@ -229,7 +229,7 @@
 						temp0.textContent = headers_val[i] + "(v2): ";
 						infowincontent.appendChild(temp0);
 						
-							var t = headers_val[i].split('\n'),
+							var t = markerElem.getAttribute(headers_val[i]).split('\n'),
 								 j;
 							 if(t[0].length>0){         
 							   infowincontent.appendChild(document.createTextNode(t[0]));
