@@ -165,7 +165,6 @@
 		ylw_diamond: { label: 'ylw-diamond.png'},
 		ylw_square: { label: 'ylw-square.png'},
 		ylw_stars: { label: 'ylw-stars.png'},
-		
       };
 			
 			//Initialize Map
@@ -262,6 +261,15 @@
 					}
 				}
 				
+				
+				
+				
+				var Cat0 = document.getElementById('Cat0').value;
+				var Cat1 = document.getElementById('Cat1').value;
+				var Cat2 = document.getElementById('Cat2').value;
+				var Cat3 = document.getElementById('Cat3').value;
+				var Cat4 = document.getElementById('Cat4').value;
+				
 				//draw markers on map
 				  var marker = new google.maps.Marker({
 					map: map,
@@ -269,6 +277,9 @@
 					//label: 'hello world',
 					icon: image
 				  });
+			  
+			  
+			  
 			  
 				//click function
 				marker.addListener('click', function() {
@@ -278,11 +289,6 @@
             });
           });
         }
-		
-		
-			
-		
-		
 		
 
       function downloadUrl(url, callback) {
