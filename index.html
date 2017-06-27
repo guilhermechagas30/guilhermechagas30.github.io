@@ -225,11 +225,25 @@
 					temp2 = document.createElement('br');
 					
 					if (headers_val[i] == 'contact_details') {
-						temp0.textContent = headers_val[i] + "(isto eh um teste): ";
-						temp1.textContent = markerElem.getAttribute(headers_val[i]);
 						
+						temp0.textContent = headers_val[i] + "(v2): ";
 						infowincontent.appendChild(temp0);
-						infowincontent.appendChild(temp1);
+						
+							var t=text.split('\n'),
+								 i;
+							 if(t[0].length>0){         
+							   infowincontent.appendChild(document.createTextNode(t[0]));
+							 }
+							 for(i=1;i<t.length;i++){
+								infowincontent.appendChild(document.createElement('BR'));
+								if(t[i].length>0){
+								  infowincontent.appendChild(document.createTextNode(t[i]));
+								}
+							 } 
+									
+						//temp1.textContent = markerElem.getAttribute(headers_val[i]);
+						
+						//infowincontent.appendChild(temp1);
 						infowincontent.appendChild(temp2);
 					}else{
 					
