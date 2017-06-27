@@ -278,17 +278,6 @@
             });
           });
         }
-		
-		
-		//listeners
-		//listeners	
-			document.getElementById("reset").addEventListener("click", function(){
-					 var reset_button = 0;
-					 window.alert("sometext");
-				});
-		
-		
-		
 
       function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
@@ -306,6 +295,18 @@
         request.send(null);
       }
 
+	  
+	  
+		//listeners	
+	  
+		window.onload=function(){
+			document.getElementById("reset").addEventListener("click", function(){
+					 var reset_button = 0;
+					 window.alert("sometext");
+				});
+		}
+	  
+	  
       function doNothing() {}
     </script>
 	
