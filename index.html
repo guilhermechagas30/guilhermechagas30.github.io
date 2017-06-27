@@ -262,13 +262,20 @@
 				}
 				
 				
-				
+				//XML categories
+				var cat0_xml = markerElem.getAttribute('cat0');
+				var cat1_xml = markerElem.getAttribute('cat1');
+				var cat2_xml = markerElem.getAttribute('cat2');
+				var cat3_xml = markerElem.getAttribute('cat3');
+				var cat4_xml = markerElem.getAttribute('cat4');
 				
 				var Cat0 = document.getElementById('Cat0').value;
 				var Cat1 = document.getElementById('Cat1').value;
 				var Cat2 = document.getElementById('Cat2').value;
 				var Cat3 = document.getElementById('Cat3').value;
 				var Cat4 = document.getElementById('Cat4').value;
+				
+				if ((Cat0 == cat0_xml) or (Cat0 == "")) {
 				
 				//draw markers on map
 				  var marker = new google.maps.Marker({
@@ -278,7 +285,7 @@
 					icon: image
 				  });
 			  
-			  
+				}
 			  
 			  
 				//click function
@@ -320,6 +327,7 @@
 			document.getElementById("Cat0").addEventListener("change", function(){
 					 var reset_button = 0;
 					 window.alert("sometext");
+					 initMap();
 				});
 				
 				
