@@ -168,19 +168,20 @@
 		
       };
 			
+		///////////////////////////////////////////////////////////////////////
+			
+			//Donwload URL
+			downloadUrl('xml_test.xml', initMap();)
 			
 			
 			//Initialize Map
-			function initMap() {
+			function initMap(data) {
 					var map = new google.maps.Map(document.getElementById('map'), {
 					  center: new google.maps.LatLng(10.796249575513844, 106.71280633544916),
 					  zoom: 4
 					});
 					var infoWindow = new google.maps.InfoWindow;
 
-				  // Change this depending on the name of your PHP or XML file
-				  //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
-					downloadUrl('xml_test.xml', function(data) {
 					var xml = data.responseXML;
 					var markers = xml.documentElement.getElementsByTagName('marker');
 					Array.prototype.forEach.call(markers, function(markerElem) {
@@ -278,8 +279,11 @@
 					infoWindow.open(map, marker);
 				});
             });
-          });
         }
+		
+		
+		
+		///////////////////////////////////////////////////////////////////////////////////////////
 
       function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
