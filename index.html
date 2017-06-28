@@ -268,7 +268,7 @@
 				var cat2_xml = markerElem.getAttribute('cat2');
 				var cat3_xml = markerElem.getAttribute('cat3');
 				var cat4_xml = markerElem.getAttribute('cat4');
-				var search_xml = markerElem.getAttribute('name') + ' ' +  markerElem.getAttribute('contact_details'); 
+				var search_xml = markerElem.getAttribute('name').toLowerCase() + ' ' +  markerElem.getAttribute('contact_details').toLowerCase(); 
 				
 				var Cat0 = document.getElementById('Cat0').value;
 				var Cat1 = document.getElementById('Cat1').value;
@@ -282,7 +282,7 @@
 						&& ((Cat2 == cat2_xml) || (Cat2 == "")) 
 						&& ((Cat3 == cat3_xml) || (Cat3 == "")) 
 						&& ((Cat4 == cat4_xml) || (Cat4 == "")) 
-						&& ((search_xml.indexOf(search) !== -1) || (search == "")) 
+						&& ((search_xml.indexOf(search.toLowerCase()) !== -1) || (search == "")) 
 					) {
 				
 					//draw markers on map
