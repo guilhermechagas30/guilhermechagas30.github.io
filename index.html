@@ -169,7 +169,11 @@
 			
 			//Initialize Map
 			function initMap() {
-			
+			var map = new google.maps.Map(document.getElementById('map'), {
+			  center: new google.maps.LatLng(10.796249575513844, 106.71280633544916),
+			  zoom: 4
+			});
+			var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
           //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
@@ -311,20 +315,23 @@
         request.open('GET', url, true);
         request.send(null);
       }
+	  
+	  
+	  // Deletes all markers in the array by removing references to them.
+      function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
 
 	  
 	  
 		window.onload=function(){
 		
-			var map = new google.maps.Map(document.getElementById('map'), {
-			  center: new google.maps.LatLng(10.796249575513844, 106.71280633544916),
-			  zoom: 4
-			});
-			var infoWindow = new google.maps.InfoWindow;
 		
 			document.getElementById("reset").addEventListener("click", function(){
 					 var reset_button = 0;
-					initMap();
+					//initMap();
+					deleteMarkers();
 				});
 			
 			document.getElementById("Cat0").addEventListener("change", function(){
