@@ -268,18 +268,22 @@
 				var cat2_xml = markerElem.getAttribute('cat2');
 				var cat3_xml = markerElem.getAttribute('cat3');
 				var cat4_xml = markerElem.getAttribute('cat4');
+				var search_xml = markerElem.getAttribute('name') + ' ' +  markerElem.getAttribute('contact_details'); 
 				
 				var Cat0 = document.getElementById('Cat0').value;
 				var Cat1 = document.getElementById('Cat1').value;
 				var Cat2 = document.getElementById('Cat2').value;
 				var Cat3 = document.getElementById('Cat3').value;
 				var Cat4 = document.getElementById('Cat4').value;
+				var search = document.getElementById('ID').value;
 				
 				if (  ((Cat0 == cat0_xml) || (Cat0 == "")) 
 						&& ((Cat1 == cat1_xml) || (Cat1 == "")) 
 						&& ((Cat2 == cat2_xml) || (Cat2 == "")) 
 						&& ((Cat3 == cat3_xml) || (Cat3 == "")) 
-						&& ((Cat4 == cat4_xml) || (Cat4 == "")) ) {
+						&& ((Cat4 == cat4_xml) || (Cat4 == "")) 
+						&& ((search_xml.indexOf(search) !== -1) || (search == "")) 
+					) {
 				
 					//draw markers on map
 					  var marker = new google.maps.Marker({
