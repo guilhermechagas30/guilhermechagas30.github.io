@@ -317,21 +317,14 @@
       }
 	  
 	  
-	  // Deletes all markers in the array by removing references to them.
-      function deleteMarkers() {
-        setMapOnAll(null);
-        //markers = [];
-      }
-
-	  
+	 	  
 	  
 		window.onload=function(){
 		
 		
 			document.getElementById("reset").addEventListener("click", function(){
 					 var reset_button = 0;
-					//initMap();
-					deleteMarkers();
+					initMap();
 				});
 			
 			document.getElementById("Cat0").addEventListener("change", function(){
