@@ -275,7 +275,7 @@
 				var Cat3 = document.getElementById('Cat3').value;
 				var Cat4 = document.getElementById('Cat4').value;
 				
-				if ((Cat0 == cat0_xml) || (Cat0 == "")) {
+				if (  (Cat0 == cat0_xml) || (Cat0 == "") && (Cat1 == cat1_xml) || (Cat1 == "") && (Cat2 == cat2_xml) || (Cat2 == "") && (Cat3 == cat3_xml) || (Cat3 == "") && (Cat4 == cat4_xml) || (Cat4 == "") ) {
 				
 					//draw markers on map
 					  var marker = new google.maps.Marker({
@@ -327,6 +327,26 @@
 				});
 			
 			document.getElementById("Cat0").addEventListener("change", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+			
+			document.getElementById("Cat1").addEventListener("change", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+			
+			document.getElementById("Cat2").addEventListener("change", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+			
+			document.getElementById("Cat3").addEventListener("change", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+			
+			document.getElementById("Cat4").addEventListener("change", function(){
 					 var reset_button = 0;
 					 initMap();
 				});
