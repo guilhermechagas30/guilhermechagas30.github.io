@@ -44,7 +44,7 @@
 		font-size: 1vw;
 	}
 
-	#contactform, #loginform, #loading { 
+	#contactform, #loginform { 
 	  position: relative; 
 	  z-index: 1; /* The z-index should be higher than Google Maps */
 	  width: 95vw;
@@ -125,12 +125,7 @@
     $(document).ready(function(){
 	
 	var query_selected;
-	
-		//hide map
-			//$('#map').hide();
-			//$('#contactform').hide();
-			//$('#loading').show();
-	
+		
 		//hide buttons
 		$('#Cat2').hide();
 		$('#Cat2_label').hide();
@@ -404,6 +399,10 @@
 				
             });
 			
+			//unhide map
+				var x = document.getElementById('map');
+					x.style.display = 'block';
+					//x.style.display = 'none';
 			
           });
         }
@@ -452,12 +451,6 @@
 
   <body>
     
-	<div id="loading">
-		<center><h2>loading</h2></center>
-	<div>
-	
-	</br>
-	
 	<div id="contactform">
 	
 		<center><h2>Knauf Market Map</h2></center>
