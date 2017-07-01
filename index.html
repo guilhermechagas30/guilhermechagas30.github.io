@@ -8,7 +8,6 @@
 	
 	#map {
         height: 100%;
-		background: transparent url(giphy.gif) no-repeat center center;
       }
 	  
 	html, body {
@@ -127,7 +126,10 @@
 	
 	var query_selected;
 	
-        <!-- $('#Cat2 optgroup').hide(); -->
+		//hide map
+			$('#map').hide();
+	
+		//hide buttons
 		$('#Cat2').hide();
 		$('#Cat2_label').hide();
 		$('#Cat2 optgroup').hide();
@@ -143,6 +145,8 @@
 		$('#PROJECTSTAGE').hide();
 		$('#PROJECTSTAGE_label').hide();
 		$('#PROJECTSTAGE optgroup').hide();
+		
+		
 		
         $('#Cat1').change(function(){
             var text= $(this).val();
@@ -397,6 +401,12 @@
 			  
 				
             });
+			
+			//unhide map
+				var x = document.getElementById('map');
+					x.style.display = 'block';
+					//x.style.display = 'none';
+			
           });
         }
 		
@@ -456,13 +466,12 @@
 			
 					<td>
 					
-						<input id= "reset" type="reset" value="reset" type="button"/>
+						<input id="enter" value ="apply filters" type="button">
 						
 						</br>
-					
-						<input id="enter" value ="apply filters" type="button">
+						
+						<input id= "reset" type="reset" value="reset" type="button"/>
 
-					
 					</td>
 					<td>
 					</td>
@@ -580,7 +589,6 @@
 					
 					</td>
 					
-				
 					</table>
 				
 				</form>			
