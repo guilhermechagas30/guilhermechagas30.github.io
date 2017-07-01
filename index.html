@@ -243,7 +243,33 @@
 	
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap"></script>
     <script>
-      //icons used	  
+      
+	  
+	  window.onload=function(){
+		
+			downloadUrl('xml_test.xml', function(data) {
+				var xml = data.responseXML;
+				var markers = xml.documentElement.getElementsByTagName('marker');
+			});
+		
+			document.getElementById("reset").addEventListener("click", function(){
+					 var reset_button = 0;
+					initMap();
+				});
+			
+			document.getElementById("enter").addEventListener("click", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+				
+				
+		}
+	  
+	  
+	  
+	  
+	  
+	  //icons used	  
 	  var customLabel = {
         a: {label: 'A.png'},
         c: { label: 'C.png'},
@@ -442,25 +468,7 @@
 	  
 	 	  
 	  
-		window.onload=function(){
 		
-			downloadUrl('xml_test.xml', function(data) {
-				var xml = data.responseXML;
-				var markers = xml.documentElement.getElementsByTagName('marker');
-			});
-		
-			document.getElementById("reset").addEventListener("click", function(){
-					 var reset_button = 0;
-					initMap();
-				});
-			
-			document.getElementById("enter").addEventListener("click", function(){
-					 var reset_button = 0;
-					 initMap();
-				});
-				
-				
-		}
 		
 		
 		function downloadUrl(url, callback) {
