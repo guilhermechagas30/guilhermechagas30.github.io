@@ -246,6 +246,7 @@
       //icons used
 	  
 		var loaded = 0;
+		var markers = null;
 	  
 	  var customLabel = {
         a: {label: 'A.png'},
@@ -321,7 +322,7 @@
             
 				}	
 			
-			var markers = xml.documentElement.getElementsByTagName('marker');
+			markers = xml.documentElement.getElementsByTagName('marker');
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
 				
