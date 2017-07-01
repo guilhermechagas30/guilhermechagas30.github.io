@@ -318,13 +318,12 @@
             
 				if (loaded == 0){
 				var xml = data.responseXML;
-				var markers = xml.documentElement.getElementsByTagName('marker');
+            
 				}	
 			
+			var markers = xml.documentElement.getElementsByTagName('marker');
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
-			
-				loaded = 1;
 			
 				//icon
 				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
@@ -459,23 +458,19 @@
 		
 
       function downloadUrl(url, callback) {
-	  
-		if (loaded == 0){
-			var request = window.ActiveXObject ?
-				new ActiveXObject('Microsoft.XMLHTTP') :
-				new XMLHttpRequest;
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
 
-			request.onreadystatechange = function() {
-			  if (request.readyState == 4) {
-				request.onreadystatechange = doNothing;
-				callback(request, request.status);
-			  }
-			};
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
 
-			request.open('GET', url, true);
-			request.send(null);
-		}
-		
+        request.open('GET', url, true);
+        request.send(null);
       }
 	  
 	  
