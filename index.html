@@ -262,6 +262,13 @@
 				
 		}
 	  
+		
+		function something () {
+	    downloadUrl('xml_test.xml', function(data) {
+				var xml = data.responseXML;
+				var markers = xml.documentElement.getElementsByTagName('marker');
+		});
+		};
 	  
 	  
 	  
@@ -315,10 +322,7 @@
 			function initMap() {
 			
 				
-				downloadUrl('xml_test.xml', function(data) {
-				var xml = data.responseXML;
-				var markers = xml.documentElement.getElementsByTagName('marker');
-				});
+				something();
 			
 				//unhide over_map
 				var x = document.getElementById('over_map');
