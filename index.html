@@ -121,8 +121,100 @@
 
 </style>
 	
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap">
-    </script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+	
+	var query_selected;
+	
+        <!-- $('#Cat2 optgroup').hide(); -->
+		$('#Cat2').hide();
+		$('#Cat2_label').hide();
+		$('#Cat2 optgroup').hide();
+		
+		$('#Cat3').hide();
+		$('#Cat3_label').hide();
+		$('#Cat3 optgroup').hide();
+		
+		$('#Cat4').hide();
+		$('#Cat4_label').hide();
+		$('#Cat4 optgroup').hide();
+		
+		$('#PROJECTSTAGE').hide();
+		$('#PROJECTSTAGE_label').hide();
+		$('#PROJECTSTAGE optgroup').hide();
+		
+        $('#Cat1').change(function(){
+            var text= $(this).val();
+			
+			$('#Cat2 optgroup').hide();   
+			$('#Cat2').val('');
+			if (text == "" || text == null) {
+				$('#Cat2').hide();
+				$('#Cat2_label').hide();
+			}else {
+				$('#Cat2').show();
+				$('#Cat2_label').show();
+				$('#Cat2 optgroup[label="'+text+'"]').css({'display':'block'});
+			}
+			
+			$('#Cat3 optgroup').hide();   
+			$('#Cat3').val('');
+			if (text == "" || text == null) {
+				$('#Cat3').hide();
+				$('#Cat3_label').hide();
+			}
+			else if (text == "Projects") {
+				$('#Cat3').show();
+				$('#Cat3_label').show();
+				$('#Cat3 optgroup[label="'+text+'"]').css({'display':'block'});
+			}
+			else {
+				$('#Cat3').hide();
+				$('#Cat3_label').hide();
+			}
+			
+			$('#Cat4 optgroup').hide();   
+			$('#Cat4').val('');
+			if (text == "" || text == null) {
+				$('#Cat4').hide();
+				$('#Cat4_label').hide();
+			}
+			else if (text == "Projects") {
+				$('#Cat4').show();
+				$('#Cat4_label').show();
+				$('#Cat4 optgroup[label="'+text+'"]').css({'display':'block'});
+			}
+			else {
+				$('#Cat4').hide();
+				$('#Cat4_label').hide();
+			}
+			
+			$('#PROJECTSTAGE optgroup').hide();   
+			$('#PROJECTSTAGE').val('');
+			if (text == "" || text == null) {
+				$('#PROJECTSTAGE').hide();
+				$('#PROJECTSTAGE_label').hide();
+			}
+			else if (text == "Projects") {
+				$('#PROJECTSTAGE').show();
+				$('#PROJECTSTAGE_label').show();
+				$('#PROJECTSTAGE optgroup[label="'+text+'"]').css({'display':'block'});
+			}
+			else {
+				$('#PROJECTSTAGE').hide();
+				$('#PROJECTSTAGE_label').hide();
+			}
+			
+        });
+			
+    });
+</script>
+
+	
+	
+	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap"></script>
     <script>
       //icons used
 	  var customLabel = {
