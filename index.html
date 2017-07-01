@@ -244,6 +244,9 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap"></script>
     <script>
       //icons used
+	  
+		var loaded = 0;
+	  
 	  var customLabel = {
         a: {label: 'A.png'},
         c: { label: 'C.png'},
@@ -302,11 +305,24 @@
 			var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
-			downloadUrl('xml_test.xml', function(data) {
-            var xml = data.responseXML;
-            var markers = xml.documentElement.getElementsByTagName('marker');
-            Array.prototype.forEach.call(markers, function(markerElem) {
+			
+			if (loaded == 0){
+				var url = 'xml_test.xml';
+			}else{
+				var url = 'nothing';
+			}
+			
+			downloadUrl(url, function(data) {
+            
+			
+            
+				if (loaded == 0){
+				var xml = data.responseXML;
+				var markers = xml.documentElement.getElementsByTagName('marker');
+				}	
+			
+			
+			Array.prototype.forEach.call(markers, function(markerElem) {
 			
 				//icon
 				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
