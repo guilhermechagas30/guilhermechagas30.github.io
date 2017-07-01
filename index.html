@@ -244,7 +244,7 @@
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap"></script>
     <script>
       //icons used
-	  var markers;
+	  var markers = null;
 	  
 	  var customLabel = {
         a: {label: 'A.png'},
@@ -305,9 +305,7 @@
 
           // Change this depending on the name of your PHP or XML file
           //downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
-			downloadUrl('xml_test.xml', function(data) {
-            var xml = data.responseXML;
-            markers = xml.documentElement.getElementsByTagName('marker');
+			
             Array.prototype.forEach.call(markers, function(markerElem) {
 			
 				//icon
@@ -438,11 +436,36 @@
 					//x.style.display = 'block';
 					x.style.display = 'none';
 			
-          });
+          
         }
 		
 
-      function downloadUrl(url, callback) {
+      
+	  
+	 	  
+	  
+		window.onload=function(){
+		
+			downloadUrl('xml_test.xml', function(data) {
+				var xml = data.responseXML;
+				markers = xml.documentElement.getElementsByTagName('marker');
+			});
+		
+			document.getElementById("reset").addEventListener("click", function(){
+					 var reset_button = 0;
+					initMap();
+				});
+			
+			document.getElementById("enter").addEventListener("click", function(){
+					 var reset_button = 0;
+					 initMap();
+				});
+				
+				
+		}
+		
+		
+		function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
             new ActiveXObject('Microsoft.XMLHTTP') :
             new XMLHttpRequest;
@@ -458,24 +481,6 @@
         request.send(null);
       }
 	  
-	  
-	 	  
-	  
-		window.onload=function(){
-		
-		
-			document.getElementById("reset").addEventListener("click", function(){
-					 var reset_button = 0;
-					initMap();
-				});
-			
-			document.getElementById("enter").addEventListener("click", function(){
-					 var reset_button = 0;
-					 initMap();
-				});
-				
-				
-		}
 	  
 	  
       function doNothing() {}
