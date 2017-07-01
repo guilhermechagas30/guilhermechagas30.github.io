@@ -144,6 +144,14 @@
 	
 	var query_selected;
 		
+		
+		$(document).keyup(function (e) {
+			if ($(".input1:focus") && (e.keyCode === 13)) {
+			   alert('ya!')
+			}
+		 });
+		
+		
 		//hide buttons
 		$('#Cat2').hide();
 		$('#Cat2_label').hide();
