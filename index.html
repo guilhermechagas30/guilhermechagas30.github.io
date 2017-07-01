@@ -243,9 +243,7 @@
 	
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB853I4mzALei8CvofzFD173gLG7Hbddys&callback=initMap"></script>
     <script>
-      //icons used
-	  var markers = null;
-	  
+      //icons used	  
 	  var customLabel = {
         a: {label: 'A.png'},
         c: { label: 'C.png'},
@@ -448,7 +446,7 @@
 		
 			downloadUrl('xml_test.xml', function(data) {
 				var xml = data.responseXML;
-				markers = xml.documentElement.getElementsByTagName('marker');
+				var markers = xml.documentElement.getElementsByTagName('marker');
 			});
 		
 			document.getElementById("reset").addEventListener("click", function(){
