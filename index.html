@@ -128,6 +128,8 @@
 	
 		//hide map
 			$('#map').hide();
+			$('#contactform').hide();
+			$('#loading').show();
 	
 		//hide buttons
 		$('#Cat2').hide();
@@ -403,9 +405,9 @@
             });
 			
 			//unhide map
-				var x = document.getElementById('map');
-					x.style.display = 'block';
-					//x.style.display = 'none';
+				document.getElementById('map').style.display = 'block';
+				document.getElementById('contactform').style.display = 'block';
+				document.getElementById('loading').style.display = 'none';
 			
           });
         }
@@ -454,6 +456,10 @@
 
   <body>
     
+	<div id="loading">
+		this is loading
+	<div>
+	
 	<div id="contactform">
 	
 		<center><h2>Knauf Market Map</h2></center>
