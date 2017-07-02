@@ -311,6 +311,8 @@
 		//markers on map
 		function makers_on_map (){
 		
+			var n_markers = 0;
+			
 				//unhide over_map
 				var x = document.getElementById('over_map');
 				x.style.display = 'block';
@@ -439,10 +441,14 @@
 						infoWindow.setContent(infowincontent);
 						infoWindow.open(map, marker);
 					});
-			  
-				}			
+					
+					n_markers = n_markers +1;
+					if (n_markers > limit_markers) {
+						return;
+					]
+					}
+				}					
             });
-			}
 			
 			
 			//hide over_map
