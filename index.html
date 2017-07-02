@@ -245,7 +245,7 @@
     <script>
       //icons used	 
 
-	  var limit_markers = 50;
+	  var limit_markers = 5000;
 	  
 	  var markers = [];
 
@@ -321,13 +321,12 @@
 				});
 				var infoWindow = new google.maps.InfoWindow;
 			
-			for (var i=0; i< limit_markers; i++) {
-			//Array.prototype.forEach.call(markers, function(markerElem) {
+			
+			Array.prototype.forEach.call(markers, function(markerElem) {
 				
 				//icon
 				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
-				//var type = markerElem.getAttribute('icon');
-				var type = markers[i].getAttribute('icon');
+				var type = markerElem.getAttribute('icon');
 				var icon_marker = customLabel[type] || {};
 				var image = {
 				  url: iconBase + icon_marker.label,
@@ -339,8 +338,8 @@
 				
 				//coordinates
 				var point = new google.maps.LatLng(
-                  parseFloat(markers[i].getAttribute('latitude')),
-                  parseFloat(markers[i].getAttribute('longitude')));
+                  parseFloat(markerElem.getAttribute('latitude')),
+                  parseFloat(markerElem.getAttribute('longitude')));
 				  
 				  
 				//info text
@@ -371,7 +370,7 @@
 						temp0.textContent = headers_val[i] + ": ";
 						infowincontent.appendChild(temp0);
 							
-						var temp = markers[i].getAttribute(headers_val[i]);
+						var temp = markerElem.getAttribute(headers_val[i]);
 						var t = temp.split('\\n'),
 							 j;
 						if(t[0].length>0){         
@@ -395,7 +394,7 @@
 					}else{
 					
 						temp0.textContent = headers_val[i] + ": ";
-						temp1.textContent = markers[i].getAttribute(headers_val[i]);
+						temp1.textContent = markerElem.getAttribute(headers_val[i]);
 						
 						infowincontent.appendChild(temp0);
 						infowincontent.appendChild(temp1);
@@ -406,12 +405,12 @@
 				
 				
 				//XML categories
-				var cat0_xml = markers[i].getAttribute('cat0');
-				var cat1_xml = markers[i].getAttribute('cat1');
-				var cat2_xml = markers[i].getAttribute('cat2');
-				var cat3_xml = markers[i].getAttribute('cat3');
-				var cat4_xml = markers[i].getAttribute('cat4');
-				var search_xml = markers[i].getAttribute('name').toLowerCase() + ' ' +  markers[i].getAttribute('contact_details').toLowerCase(); 
+				var cat0_xml = markerElem.getAttribute('cat0');
+				var cat1_xml = markerElem.getAttribute('cat1');
+				var cat2_xml = markerElem.getAttribute('cat2');
+				var cat3_xml = markerElem.getAttribute('cat3');
+				var cat4_xml = markerElem.getAttribute('cat4');
+				var search_xml = markerElem.getAttribute('name').toLowerCase() + ' ' +  markerElem.getAttribute('contact_details').toLowerCase(); 
 				
 				var Cat0 = document.getElementById('Cat0').value;
 				var Cat1 = document.getElementById('Cat1').value;
@@ -443,8 +442,7 @@
 					});
 			  
 				}			
-            //});
-			}
+            });
 			
 			
 			//hide over_map
