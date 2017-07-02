@@ -325,6 +325,10 @@
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
 				
+				if (n_markers > limit_markers) {
+						return;
+				}
+				
 				//icon
 				var iconBase = 'https://maps.google.com/mapfiles/kml/paddle/';
 				var type = markerElem.getAttribute('icon');
@@ -443,9 +447,7 @@
 					});
 					
 					n_markers = n_markers +1;
-					if (n_markers > limit_markers) {
-						break;
-					}
+					
 				}					
             });
 			
