@@ -321,7 +321,7 @@
 				});
 				var infoWindow = new google.maps.InfoWindow;
 			
-			for (var k=0; k< limit_markers; k++) {
+			for (var k=0; k< limit_markers) {
 			//Array.prototype.forEach.call(markers, function(markerElem) {
 				
 				//icon
@@ -441,7 +441,9 @@
 						infoWindow.setContent(infowincontent);
 						infoWindow.open(map, marker);
 					});
-			  
+				
+					//increase array counter
+					k++;
 				}			
             //});
 			}
