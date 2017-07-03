@@ -539,35 +539,39 @@
 						
 						<select id="Cat1">
 						  <option value="" selected="selected">--Select--</option>
-						  <option value="Sub-dealers">Sub-dealers</option>
+						  <option value="Distributors">Distributors</option>
 						  <option value="Stakeholders">Stakeholders</option>
 						  <option value="Projects">Projects</option>
 						</select>
 						
 					
 						<select id="Cat2">
-						<optgroup label="Sub-dealers">
-										<option value="">--Select--</option>
-										<option value="Importer">Importer</option>
-										<option value="Distributor">Distributor</option>
-						   </optgroup>
-						   <optgroup label="Stakeholders">
-										<option value="">--Select--</option>
-										<option value="Specifiers">Specifiers</option>
-										<option value="Owner/Property Developers">Owner/Property Developers</option>
-										<option value="Contractors">Contractors</option>
-										<option value="Government">Government</option>
-										<option value="NA">Classification Pending</option>
-						   </optgroup>
-							<optgroup label="Projects">					
-										<option value="">--Select--</option>
-										<option value="Hotel">Hotel</option>
-										<option value="Multi-Use">Multi-Use</option>
-										<option value="Office">Office</option>
-										<option value="Residential">Residential</option>
-										<option value="Retail">Retail</option>
-						   </optgroup>
-						   </select>
+							<optgroup label="Distributors">
+											<option value="">--Select--</option>
+											<option value="Distributor">Distributor</option>
+											<option value="Wholesaler">Wholesaler</option>
+											<option value="Retailer">Retailer</option>
+							   </optgroup>
+							   <optgroup label="Stakeholders">
+											<option value="">--Select--</option>
+											<option value="Architect/Designer">Architect/Designer</option>
+											<option value="Developer/Property Manager">Developer/Property Manager</option>
+											<option value="Engineer/Technical Consultant">Engineer/Technical Consultant</option>
+											<option value="Main Contractor">Main Contractor</option>
+											<option value="Subcontractor">Subcontractor</option>
+											
+							   </optgroup>
+								<optgroup label="Projects">					
+											<option value="">--Select--</option>
+											<option value="Education">Education</option>
+											<option value="Healthcare">Healthcare</option>
+											<option value="Hotel">Hotel</option>
+											<option value="Multi-Use">Multi-Use</option>
+											<option value="Office">Office</option>
+											<option value="Residential">Residential</option>
+											<option value="Retail">Retail</option>
+							   </optgroup>
+						</select>
 
 						 <select id="Cat3">
 						   <optgroup label="Importer">
@@ -640,11 +644,11 @@
 
 	</div>
 	
-	 <div id="over_map">
+	 <div id="over_map" >
 			<center><h2>Loading... Please wait.</h2></center>
 	 </div>
 	
-	<div id="map"></div>	
+	<div id="map" onmousedown='return false;' onselectstart='return false;'></div>	
 	
   </body>
 </html>
