@@ -329,7 +329,7 @@
 			
 			window.alert(markers.length);
 			
-			Array.prototype.sort(function(a, b){return 0.5 - Math.random()}).forEach.call(markers, function(markerElem) {
+			Array.prototype.reverse().forEach.call(markers, function(markerElem) {
 				
 				if (n_markers > limit_markers) {
 						return;
