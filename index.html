@@ -301,9 +301,10 @@
 				downloadUrl(url, function(data) {
 				
 					var xml = data.responseXML;
-					//markers = xml.documentElement.getElementsByTagName('marker');
-					markers = shuffleArray(xml.documentElement.getElementsByTagName('marker'));
-				
+					markers = xml.documentElement.getElementsByTagName('marker');
+					//markers = shuffleArray(xml.documentElement.getElementsByTagName('marker'));
+					markers.sort(function(a, b){return 0.5 - Math.random()});
+					
 					makers_on_map();
 				});
         }
