@@ -311,6 +311,7 @@
 		//markers on map
 		function makers_on_map (){
 		
+			
 			var n_markers = 0;
 			
 				//unhide over_map
@@ -322,6 +323,8 @@
 				  zoom: 4
 				});
 				var infoWindow = new google.maps.InfoWindow;
+			
+			window.alert("sometext");
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
 				
