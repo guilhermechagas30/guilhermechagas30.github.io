@@ -308,6 +308,8 @@
 				});
         }
 		
+		//42252
+		
 		
 		//markers on map
 		function makers_on_map (){
@@ -327,7 +329,7 @@
 			
 			window.alert(markers.length);
 			
-			Array.prototype.forEach.call(markers, function(markerElem) {
+			Array.prototype.sort(function(a, b){return 0.5 - Math.random()}).forEach.call(markers, function(markerElem) {
 				
 				if (n_markers > limit_markers) {
 						return;
@@ -463,15 +465,15 @@
 		
 		}
 		
-	  function shuffleArray(array) {
-			for (var i = array.length - 1; i > 0; i--) {
-				var j = Math.floor(Math.random() * (i + 1));
-				var temp = array[i];
-				array[i] = array[j];
-				array[j] = temp;
-			}
-			return array;
-		}
+	  Array.prototype.randomize = function() {
+		  var t, j, ret = this.slice(0), i = ret.length;
+		  while(--i > 0) {
+			t = ret[j = Math.round(Math.random() * i)];
+			ret[j] = ret[i];
+			ret[i] = t;
+		  }
+		  return ret;
+		};
 
       function downloadUrl(url, callback) {
 	  
