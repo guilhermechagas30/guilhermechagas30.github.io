@@ -330,10 +330,9 @@
 			
 			window.alert(randomDiv);
 			
-			var randoms = Array.from({length: markers.length}, () => Math.floor(Math.random() * 10));
+			window.alert(markers[500].getAttribute('icon'));
 			
-			//Array.prototype.forEach.call(markers, function(markerElem) {
-			randoms.forEach.call(markers, function(markerElem) {
+			Array.prototype.forEach.call(markers, function(markerElem) {
 				
 				if (n_markers > limit_markers) {
 						return;
