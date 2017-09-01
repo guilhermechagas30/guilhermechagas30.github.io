@@ -245,8 +245,6 @@
     <script>
       //icons used	 
 
-	  var limit_markers = 50000;
-	  
 	  var markers = [];
 
 	  var customLabel = {
@@ -303,6 +301,9 @@
 					var xml = data.responseXML;
 					markers = xml.documentElement.getElementsByTagName('marker');
 					
+					//set number of markers on the screen
+					var limit_markers = markers.length;
+	  
 					makers_on_map();
 				});
         }
