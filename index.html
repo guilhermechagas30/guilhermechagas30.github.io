@@ -302,7 +302,6 @@
 				
 					var xml = data.responseXML;
 					markers = xml.documentElement.getElementsByTagName('marker');
-					//markers = shuffleArray(xml.documentElement.getElementsByTagName('marker'));
 					
 					makers_on_map();
 				});
@@ -327,9 +326,11 @@
 				});
 				var infoWindow = new google.maps.InfoWindow;
 			
-			window.alert(markers.length);
+			var randomDiv = Math.floor(Math.random() * markers.length);
 			
-			Array.prototype.reverse().forEach.call(markers, function(markerElem) {
+			window.alert(randomDiv);
+			
+			Array.prototype.forEach.call(markers, function(markerElem) {
 				
 				if (n_markers > limit_markers) {
 						return;
@@ -465,16 +466,6 @@
 		
 		}
 		
-	  Array.prototype.randomize = function() {
-		  var t, j, ret = this.slice(0), i = ret.length;
-		  while(--i > 0) {
-			t = ret[j = Math.round(Math.random() * i)];
-			ret[j] = ret[i];
-			ret[i] = t;
-		  }
-		  return ret;
-		};
-
       function downloadUrl(url, callback) {
 	  
 			var request = window.ActiveXObject ?
