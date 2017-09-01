@@ -334,6 +334,22 @@
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
 				
+			//XML categories
+				var cat0_xml = markerElem.getAttribute('cat0');
+				var cat1_xml = markerElem.getAttribute('cat1');
+				var cat2_xml = markerElem.getAttribute('cat2');
+				var cat3_xml = markerElem.getAttribute('cat3');
+				var cat4_xml = markerElem.getAttribute('cat4');
+				var search_xml = markerElem.getAttribute('name').toLowerCase() + ' ' +  markerElem.getAttribute('contact_details').toLowerCase(); 
+				
+				var Cat0 = document.getElementById('Cat0').value;
+				var Cat1 = document.getElementById('Cat1').value;
+				var Cat2 = document.getElementById('Cat2').value;
+				var Cat3 = document.getElementById('Cat3').value;
+				var Cat4 = document.getElementById('Cat4').value;
+				var search = document.getElementById('ID').value;
+					
+			
 			if (  ((Cat0 == cat0_xml) || (Cat0 == "")) 
 					&& ((Cat1 == cat1_xml) || (Cat1 == "")) 
 					&& ((Cat2 == cat2_xml) || (Cat2 == "")) 
@@ -423,25 +439,7 @@
 						infowincontent.appendChild(temp2);
 					
 					}
-				}
-				
-				
-				//XML categories
-				var cat0_xml = markerElem.getAttribute('cat0');
-				var cat1_xml = markerElem.getAttribute('cat1');
-				var cat2_xml = markerElem.getAttribute('cat2');
-				var cat3_xml = markerElem.getAttribute('cat3');
-				var cat4_xml = markerElem.getAttribute('cat4');
-				var search_xml = markerElem.getAttribute('name').toLowerCase() + ' ' +  markerElem.getAttribute('contact_details').toLowerCase(); 
-				
-				var Cat0 = document.getElementById('Cat0').value;
-				var Cat1 = document.getElementById('Cat1').value;
-				var Cat2 = document.getElementById('Cat2').value;
-				var Cat3 = document.getElementById('Cat3').value;
-				var Cat4 = document.getElementById('Cat4').value;
-				var search = document.getElementById('ID').value;
-				
-				
+				}			
 				
 					//draw markers on map
 					  var marker = new google.maps.Marker({
