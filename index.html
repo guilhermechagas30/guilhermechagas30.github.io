@@ -334,6 +334,14 @@
 			
 			Array.prototype.forEach.call(markers, function(markerElem) {
 				
+			if (  ((Cat0 == cat0_xml) || (Cat0 == "")) 
+					&& ((Cat1 == cat1_xml) || (Cat1 == "")) 
+					&& ((Cat2 == cat2_xml) || (Cat2 == "")) 
+					&& ((Cat3 == cat3_xml) || (Cat3 == "")) 
+					&& ((Cat4 == cat4_xml) || (Cat4 == "")) 
+					&& ((search_xml.indexOf(search.toLowerCase()) !== -1) || (search == "")) 
+			) {
+				
 				if (n_markers > limit_markers) {
 						return;
 				}
@@ -433,13 +441,7 @@
 				var Cat4 = document.getElementById('Cat4').value;
 				var search = document.getElementById('ID').value;
 				
-				if (  ((Cat0 == cat0_xml) || (Cat0 == "")) 
-						&& ((Cat1 == cat1_xml) || (Cat1 == "")) 
-						&& ((Cat2 == cat2_xml) || (Cat2 == "")) 
-						&& ((Cat3 == cat3_xml) || (Cat3 == "")) 
-						&& ((Cat4 == cat4_xml) || (Cat4 == "")) 
-						&& ((search_xml.indexOf(search.toLowerCase()) !== -1) || (search == "")) 
-					) {
+				
 				
 					//draw markers on map
 					  var marker = new google.maps.Marker({
