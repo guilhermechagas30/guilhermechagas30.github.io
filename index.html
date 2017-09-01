@@ -301,8 +301,7 @@
 					var xml = data.responseXML;
 					markers = xml.documentElement.getElementsByTagName('marker');
 					
-					//set number of markers on the screen
-					var limit_markers = markers.length;
+					
 	  
 					makers_on_map();
 				});
@@ -314,6 +313,8 @@
 		//markers on map
 		function makers_on_map (){
 		
+			//set number of markers on the screen
+			var limit_markers = markers.length;
 			
 			var n_markers = 0;
 			
